@@ -1,4 +1,4 @@
-# AI Retail Demand Forecasting
+# AI Retail Demand Forecasting.
 
 A retail demand forecasting project with a React dashboard, a FastAPI backend,
 historical demand analytics, model evaluation artifacts, and an inventory
