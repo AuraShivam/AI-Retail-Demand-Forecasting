@@ -1,0 +1,161 @@
+{
+  "dataset": {
+    "name": "Retail Demand Forecasting Dataset",
+    "source": "Kaggle retail inventory and demand forecasting dataset",
+    "rows": 76000,
+    "columns": 16,
+    "stores": 5,
+    "products": 20,
+    "date_start": "2022-01-01",
+    "date_end": "2024-01-30",
+    "target": "Demand",
+    "forecast_horizon": 7,
+    "missing_values": 0,
+    "duplicate_rows": 0,
+    "preprocessing_summary": [
+      "Date values were parsed as datetime and checked for invalid records.",
+      "Duplicate rows were removed from the cleaned dataset.",
+      "Missing values were reviewed and no nulls remained in the final cleaned file.",
+      "The training pipeline keeps the temporal order of observations for split validation and test evaluation."
+    ]
+  },
+  "training": {
+    "model": "XGBoost",
+    "target": "Demand",
+    "feature_count": 53,
+    "features": [
+      "Store ID",
+      "Product ID",
+      "Category",
+      "Region",
+      "Weather Condition",
+      "Promotion",
+      "Seasonality",
+      "Epidemic",
+      "Year",
+      "Month",
+      "Quarter",
+      "DayOfMonth",
+      "DayOfWeek",
+      "WeekOfYear",
+      "IsWeekend",
+      "DayOfWeek_Sin",
+      "DayOfWeek_Cos",
+      "Month_Sin",
+      "Month_Cos",
+      "Lag_1",
+      "Lag_7",
+      "Lag_14",
+      "Lag_30",
+      "RollingMean_7",
+      "RollingMean_14",
+      "RollingMean_30",
+      "RollingStd_7",
+      "RollingStd_14",
+      "RollingStd_30",
+      "RollingMin_7",
+      "RollingMax_7",
+      "RollingMin_30",
+      "RollingMax_30",
+      "Inventory_Lag_1",
+      "Inventory_Lag_7",
+      "UnitsSold_Lag_1",
+      "UnitsSold_Lag_7",
+      "UnitsSold_Lag_14",
+      "UnitsOrdered_Lag_1",
+      "UnitsOrdered_Lag_7",
+      "UnitsOrdered_Lag_14",
+      "Inventory Level",
+      "Price",
+      "Discount",
+      "Competitor Pricing",
+      "Price_Lag_1",
+      "Price_Change",
+      "Price_Change_Pct",
+      "CompetitorPrice_Lag_1",
+      "CompetitorPrice_Change",
+      "Price_Competitor_Difference",
+      "Inventory_Demand_Ratio",
+      "Inventory_Coverage_Approx"
+    ],
+    "best_parameters": {
+      "n_estimators": 500,
+      "max_depth": 7,
+      "learning_rate": 0.08
+    },
+    "train_rows": 51000,
+    "validation_rows": 11000,
+    "test_rows": 11000,
+    "train_start": "2022-01-31",
+    "train_end": "2023-06-24",
+    "validation_start": "2023-06-25",
+    "validation_end": "2023-10-12",
+    "test_start": "2023-10-13",
+    "test_end": "2024-01-30",
+    "random_seed": "Not recorded in the saved metadata",
+    "feature_engineering": [
+      "Lag features for demand, inventory, units sold, units ordered, and price.",
+      "Rolling statistics over 7, 14, and 30 day windows for demand and inventory.",
+      "Calendar encodings with sine/cosine month and weekday transforms.",
+      "Inventory-demand ratio and inventory coverage approximations for operational context."
+    ],
+    "training_timestamp": "Not recorded in the persisted training metadata"
+  },
+  "evaluation": {
+    "selected_model": "XGBoost",
+    "baseline_model": "Mean Baseline",
+    "validation_metrics": {
+      "MAE": 11.745776176452637,
+      "RMSE": 15.755652003911466,
+      "sMAPE": 11.50656306884023,
+      "R2": 0.8943370580673218,
+      "WAPE": null
+    },
+    "test_metrics": {
+      "MAE": 11.24174690246582,
+      "RMSE": 14.94978625294653,
+      "sMAPE": 13.10182912353326,
+      "R2": 0.8883525729179382,
+      "WAPE": null
+    },
+    "model_comparison": [
+      { "Model": "XGBoost", "MAE": 12.521531105041504, "RMSE": 16.69673455572133, "sMAPE (%)": 12.215538916546652, "R2": 0.8813376426696777 },
+      { "Model": "Random Forest", "MAE": 17.6876049679963, "RMSE": 22.93671338259087, "sMAPE (%)": 17.170853806392962, "R2": 0.7760699742299715 },
+      { "Model": "Ridge Regression", "MAE": 18.262270645685106, "RMSE": 23.703175738984903, "sMAPE (%)": 17.92368442027025, "R2": 0.7608540515036003 },
+      { "Model": "Mean Baseline", "MAE": 37.51608570409982, "RMSE": 49.40394618656848, "sMAPE (%)": 34.67774355390668, "R2": -0.038898776287471515 },
+      { "Model": "Lag-1 Baseline", "MAE": 44.49918181818182, "RMSE": 57.78735077065663, "sMAPE (%)": 40.75190535595539, "R2": -0.4213974258542532 }
+    ],
+    "evaluation_period": "2023-10-13 to 2024-01-30",
+    "forecast_horizon": 7
+  },
+  "pipeline": {
+    "stages": [
+      "Raw Retail Data",
+      "Data Cleaning",
+      "Feature Engineering",
+      "Temporal Data Split",
+      "Model Training",
+      "Model Evaluation",
+      "Demand Forecasting"
+    ],
+    "status": {
+      "Raw Retail Data": "Completed",
+      "Data Cleaning": "Completed",
+      "Feature Engineering": "Completed",
+      "Temporal Data Split": "Completed",
+      "Model Training": "Completed",
+      "Model Evaluation": "Completed",
+      "Demand Forecasting": "Baseline endpoint only; trained model is not currently used for live forecast requests"
+    }
+  },
+  "findings": [
+    "On the held-out test set, the XGBoost model achieved MAE 11.24 and RMSE 14.95, outperforming the mean baseline MAE 37.52 and RMSE 49.40.",
+    "The saved validation metrics also show XGBoost outperforming the baseline models on the same temporal holdout window.",
+    "The project does not contain saved residual distributions or feature-importance scores for the final deployed model artifact, so those charts are shown as not yet generated."
+  ],
+  "limitations": [
+    "The dashboard forecast currently uses a seven-day moving-average baseline rather than the trained XGBoost model.",
+    "The project metadata does not include WAPE, a random seed, or final residual/error artifacts for the selected model.",
+    "The inventory optimization module is not backed by a validated lead-time and service-level policy, so stockout prevention claims should be treated as planned rather than implemented."
+  ]
+}

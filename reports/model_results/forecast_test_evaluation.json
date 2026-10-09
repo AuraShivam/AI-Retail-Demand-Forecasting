@@ -1,0 +1,190 @@
+{
+  "conditional_next_day_comparison": {
+    "test_period": [
+      "2023-10-13",
+      "2024-01-30"
+    ],
+    "rows": 11000,
+    "unique_series": 100,
+    "comparison_horizon_days": 1,
+    "alignment": "Same 11,000 test rows keyed by date, store, and product; no duplicate keys or missing targets.",
+    "qualification": "Conditional one-step diagnostic only. The selected 53-feature model uses same-date Inventory Level, Price, Discount, Competitor Pricing, Weather Condition, Promotion, and Epidemic fields; their availability before demand is not established.",
+    "metrics": {
+      "saved_xgboost_53_feature": {
+        "MAE": 11.241746762351557,
+        "RMSE": 14.949785841667685,
+        "sMAPE": 13.101829123533259,
+        "R2": 0.8883525818500777,
+        "rows": 11000
+      },
+      "7_day_moving_average_one_step": {
+        "MAE": 31.40688311688312,
+        "RMSE": 40.61372050348793,
+        "sMAPE": 33.54500356853619,
+        "R2": 0.1760055372654924,
+        "rows": 11000
+      },
+      "training_mean_baseline": {
+        "MAE": 35.80427137254902,
+        "RMSE": 44.86056568484968,
+        "sMAPE": 38.06340801319537,
+        "R2": -0.005329052205193863,
+        "rows": 11000
+      }
+    }
+  },
+  "rolling_origin_7day_comparison": {
+    "test_period": [
+      "2023-10-13",
+      "2024-01-30"
+    ],
+    "forecast_horizon_days": 7,
+    "forecast_origins": 110,
+    "unique_series": 100,
+    "prediction_rows": 74900,
+    "one_step_feature_reconstruction": {
+      "matched_test_rows": 11000,
+      "max_absolute_prediction_difference": 0.0,
+      "within_tolerance": true
+    },
+    "alignment": "At each rolling origin, saved leakage-reduced XGBoost and recursive 7-day moving average are scored on identical date/store/product/horizon targets. Future actual demand is not used inside either forecast path.",
+    "feature_assumptions": "Calendar features are known; demand lags update recursively from predictions; operational lag features (inventory, units sold/ordered, price) are held at the last observed history.",
+    "pooled_metrics_over_all_horizons": {
+      "xgboost": {
+        "MAE": 35.09031821780593,
+        "RMSE": 43.84850152746865,
+        "sMAPE": 36.67330589668695,
+        "R2": 0.033055110958308154,
+        "rows": 74900
+      },
+      "moving_average": {
+        "MAE": 33.505534908114214,
+        "RMSE": 43.228908842361776,
+        "sMAPE": 35.75505608064971,
+        "R2": 0.06018849714159735,
+        "rows": 74900
+      }
+    },
+    "metrics_by_horizon": [
+      {
+        "horizon": 1,
+        "xgboost": {
+          "MAE": 34.67051408212835,
+          "RMSE": 43.43564025418621,
+          "sMAPE": 36.58144401671643,
+          "R2": 0.05752205338586602,
+          "rows": 11000
+        },
+        "moving_average": {
+          "MAE": 31.406883116883115,
+          "RMSE": 40.613720503487926,
+          "sMAPE": 33.54500356853619,
+          "R2": 0.1760055372654925,
+          "rows": 11000
+        }
+      },
+      {
+        "horizon": 2,
+        "xgboost": {
+          "MAE": 34.471100273657285,
+          "RMSE": 42.97184471530227,
+          "sMAPE": 36.38564585674745,
+          "R2": 0.07563814238496214,
+          "rows": 10900
+        },
+        "moving_average": {
+          "MAE": 32.06482493914997,
+          "RMSE": 41.46822360097077,
+          "sMAPE": 34.23747348935226,
+          "R2": 0.1391947945721066,
+          "rows": 10900
+        }
+      },
+      {
+        "horizon": 3,
+        "xgboost": {
+          "MAE": 34.48329565330788,
+          "RMSE": 43.09744300777729,
+          "sMAPE": 36.29187053067301,
+          "R2": 0.06804671468962242,
+          "rows": 10800
+        },
+        "moving_average": {
+          "MAE": 32.79652278371666,
+          "RMSE": 42.428020037026116,
+          "sMAPE": 34.97827857197194,
+          "R2": 0.09677351004395973,
+          "rows": 10800
+        }
+      },
+      {
+        "horizon": 4,
+        "xgboost": {
+          "MAE": 34.82214890845468,
+          "RMSE": 43.46847334209729,
+          "sMAPE": 36.509920850814765,
+          "R2": 0.0495044635809192,
+          "rows": 10700
+        },
+        "moving_average": {
+          "MAE": 33.52043934186301,
+          "RMSE": 43.33212884657715,
+          "sMAPE": 35.760046026230974,
+          "R2": 0.055457816849113994,
+          "rows": 10700
+        }
+      },
+      {
+        "horizon": 5,
+        "xgboost": {
+          "MAE": 35.29204827227682,
+          "RMSE": 44.04102456303266,
+          "sMAPE": 36.757683152801015,
+          "R2": 0.021552328397329124,
+          "rows": 10600
+        },
+        "moving_average": {
+          "MAE": 34.27490325235105,
+          "RMSE": 44.187492681284226,
+          "sMAPE": 36.52847509925022,
+          "R2": 0.015033420289644273,
+          "rows": 10600
+        }
+      },
+      {
+        "horizon": 6,
+        "xgboost": {
+          "MAE": 35.678680139814105,
+          "RMSE": 44.646099782109246,
+          "sMAPE": 36.95733859845189,
+          "R2": -0.007607040623725636,
+          "rows": 10500
+        },
+        "moving_average": {
+          "MAE": 35.001574394212966,
+          "RMSE": 44.94321796476075,
+          "sMAPE": 37.35014666945595,
+          "R2": -0.021062843049268976,
+          "rows": 10500
+        }
+      },
+      {
+        "horizon": 7,
+        "xgboost": {
+          "MAE": 36.28997568240533,
+          "RMSE": 45.32132414092344,
+          "sMAPE": 37.263397702019454,
+          "R2": -0.04039585109091237,
+          "rows": 10400
+        },
+        "moving_average": {
+          "MAE": 35.66159671721873,
+          "RMSE": 45.61775626486059,
+          "sMAPE": 38.08595413591514,
+          "R2": -0.05405014527365104,
+          "rows": 10400
+        }
+      }
+    ]
+  }
+}

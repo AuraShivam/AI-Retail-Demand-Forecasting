@@ -1,0 +1,92 @@
+feature,importance
+cat__Promotion_0,0.17137755
+cat__Promotion_1,0.15717022
+cat__Epidemic_0,0.11164832
+num__RollingMean_7,0.06319807
+num__Price_Change_Pct,0.05260517
+cat__Category_Groceries,0.046896864
+cat__Epidemic_1,0.03659843
+cat__Category_Clothing,0.034707088
+num__Discount,0.028817281
+num__Lag_1,0.018929021
+cat__Weather Condition_Sunny,0.01752541
+cat__Category_Furniture,0.017248655
+num__RollingMean_14,0.017118944
+num__Price_Change,0.016796166
+num__CompetitorPrice_Change,0.011379918
+cat__Category_Electronics,0.009138351
+cat__Weather Condition_Cloudy,0.009062271
+num__Month_Cos,0.008592035
+cat__Seasonality_Summer,0.0081748795
+cat__Weather Condition_Rainy,0.0062336223
+cat__Weather Condition_Snowy,0.0055962405
+cat__Category_Toys,0.0051571773
+num__RollingMin_7,0.0039105806
+cat__Product ID_P0006,0.0037535904
+cat__Product ID_P0002,0.0037456937
+num__Price,0.0037076226
+cat__Store ID_S005,0.003689983
+cat__Region_South,0.0036695949
+cat__Product ID_P0013,0.0034898126
+num__Competitor Pricing,0.0032526036
+cat__Region_North,0.0031584396
+cat__Product ID_P0004,0.0031578336
+cat__Store ID_S002,0.0031414225
+cat__Product ID_P0018,0.0030757093
+cat__Product ID_P0015,0.0030626494
+cat__Seasonality_Winter,0.0030499417
+cat__Product ID_P0014,0.002979337
+cat__Product ID_P0003,0.0029540842
+cat__Product ID_P0011,0.0029082587
+cat__Store ID_S004,0.002847334
+cat__Product ID_P0001,0.0028288017
+cat__Product ID_P0008,0.0028235507
+cat__Store ID_S001,0.0028057094
+cat__Product ID_P0009,0.0028049925
+num__UnitsSold_Lag_1,0.002781849
+cat__Product ID_P0016,0.0027665298
+cat__Store ID_S003,0.002747015
+cat__Region_East,0.00268606
+cat__Region_West,0.0026712287
+cat__Product ID_P0010,0.0026684005
+cat__Product ID_P0017,0.0026509904
+cat__Product ID_P0007,0.0026311653
+num__Price_Lag_1,0.0026025558
+cat__Product ID_P0005,0.0025874793
+cat__Product ID_P0019,0.0024339599
+num__RollingMax_7,0.0024177744
+cat__Product ID_P0012,0.0023451645
+num__Price_Competitor_Difference,0.002231841
+cat__Seasonality_Spring,0.0022105945
+num__RollingMax_30,0.0021681366
+num__RollingMean_30,0.002061643
+cat__Product ID_P0020,0.0019190342
+num__CompetitorPrice_Lag_1,0.0018151858
+num__UnitsOrdered_Lag_1,0.0016768845
+cat__Seasonality_Autumn,0.0016393169
+num__RollingStd_14,0.0014783487
+num__RollingStd_30,0.0014021526
+num__UnitsOrdered_Lag_7,0.0013601263
+num__Inventory_Coverage_Approx,0.0013517488
+num__RollingMin_30,0.0013099018
+num__RollingStd_7,0.0012659363
+num__Inventory Level,0.0012290282
+num__DayOfMonth,0.0012204569
+num__Inventory_Demand_Ratio,0.0012137209
+num__Inventory_Lag_1,0.0011738515
+num__UnitsSold_Lag_14,0.001168952
+num__WeekOfYear,0.0011670663
+num__UnitsSold_Lag_7,0.0011495721
+num__Month_Sin,0.0011196914
+num__Inventory_Lag_7,0.0011032241
+num__Lag_30,0.0010309344
+num__UnitsOrdered_Lag_14,0.0009922378
+num__Lag_7,0.00095572177
+num__Lag_14,0.0008981021
+num__DayOfWeek_Sin,0.0007021589
+num__DayOfWeek_Cos,0.00059259014
+num__DayOfWeek,0.0005728506
+num__Month,0.00034898368
+num__IsWeekend,0.00026116942
+num__Year,0.00021962263
+num__Quarter,0.0002098631
